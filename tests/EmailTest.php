@@ -31,6 +31,6 @@ final class EmailTest extends TestCase
 
     public function testFail()
     {
-        $this->assertEquals(4,4);
+        $this->assertEquals(3,4);
     }
 }
