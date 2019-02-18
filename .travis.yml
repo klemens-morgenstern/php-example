@@ -1,10 +1,5 @@
 language: php
 sudo: false
-php:
-  - '8.0'
-
-before_script:
-  - composer install
 
 script:
   - phpunit --log-junit email.xml --bootstrap src/Email.php tests/EmailTest.php
