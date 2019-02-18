@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 final class Email
 {
@@ -12,17 +11,17 @@ final class Email
         $this->email = $email;
     }
 
-    public static function fromString(string $email): self
+    public static function fromString(string $email)
     {
         return new self($email);
     }
 
-    public function __toString(): string
+    public function __toString()
     {
         return $this->email;
     }
 
-    private function ensureIsValidEmail(string $email): void
+    private function ensureIsValidEmail(string $email)
     {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             throw new InvalidArgumentException(
