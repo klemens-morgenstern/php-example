@@ -1,0 +1,8 @@
+language: php
+sudo: false
+
+script:
+  - phpunit --log-junit email.xml --bootstrap src/Email.php tests/EmailTest.php
+
+after_script:
+  - python <(curl -s https://raw.githubusercontent.com/report-ci/scripts/master/upload.py)
