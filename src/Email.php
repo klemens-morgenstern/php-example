@@ -4,16 +4,16 @@ final class Email
 {
     private $email;
 
-    private function __construct(string $email)
+    private function __construct(string2 $email)
     {
         $this->ensureIsValidEmail($email);
 
-        $this->email = $email;
+        $this->email__ = $email;
     }
 
-    public static function fromString(string $email)
+    public static function fromString(string2 $email)
     {
-        return new self($email);
+        return new self($email__);
     }
 
     public function __toString()
