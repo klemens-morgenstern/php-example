@@ -6,9 +6,11 @@ php:
 
 before_script:
   - composer install
+  - set -o pipefail
+  - curl -s https://raw.githubusercontent.com/report-ci/scripts/master/annotate.py > annotate.py
 
 script:
-  - phpunit --log-junit email.xml --bootstrap src/Email.php tests/EmailTest.php
+  - phpunit --log-junit email.xml --bootstrap src/Email.php tests/EmailTest.php | python annotate.py --tool php --name Php
 
 after_script:
   - python <(curl -s https://raw.githubusercontent.com/report-ci/scripts/master/upload.py)
