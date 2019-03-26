@@ -10,7 +10,7 @@ before_script:
   - curl -s https://raw.githubusercontent.com/report-ci/scripts/master/annotate.py > annotate.py
 
 script:
-  - phpunit --log-junit email.xml --bootstrap src/Email.php tests/EmailTest.php | python annotate.py --tool php --name Php
+  - phpunit --log-junit email.xml --bootstrap src/Email.php tests/EmailTest.php | python annotate.py --tool php --name Php --tee
 
 after_script:
   - python <(curl -s https://raw.githubusercontent.com/report-ci/scripts/master/upload.py)
